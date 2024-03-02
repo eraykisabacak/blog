@@ -1,0 +1,91 @@
+---
+title: 'Java Programlama Dili İle Hesap Makinesi | 5'
+date: '2018-12-22'
+lastmod: '2018-12-22'
+tags: ['java', 'algoritma', 'java programlama sorusu']
+draft: false
+summary: 'Java Programlama Dili İle Hesap Makinesi sorusu çözümü'
+images: ['/static/images/twitter-card.png']
+---
+
+## Merhabalar arkadaşlar bugün sizlerle beraber Java programlama dili ile basit hesap makinesi yapacağız. İsterseniz direk sorumuza geçelim.
+Sorumuz:
+1. Kullanıcı tarafından yapılacak seçime göre gerekli işlemi yapan ve sonuç döndüren bir hesap makinası tasarlayınız. Kullanıcının sayıları girmesi sağlandıktan sonra bir menü sunulmalı ve seçim yapması sağlanmalıdır. Programın sonunda ise kullanıcının seçtiği işlem ve işlemin sonucu gösterilmelidir.
+<br />
+Örnek:<br />
+Sayıları giriniz:<br />
+25<br />
+12<br />
+İŞLEM MENÜSÜ<br />
+1-Toplama<br />
+2-Çıkarma<br />
+3-Çarpma<br />
+4-Bölme<br />
+Seçilen İşlem: 3<br />
+Sonuç: 25*12=300<br />
+## Öncelikle kendiniz denemeyi unutmayın!!<br />
+Öncelikle kullanıcıdan bir giriş alacağımız için scanner kütüphanesini ekliyoruz.Daha sonra bir işlem menüsü için ekrana gösteriyoruz.Burada 1-Toplama 2-Çıkartma 3-Çarpma 4-Bölme yazdırıyoruz.Daha sonra islem adında bir değişken atıyoruz ve buraya hangi işlemin girildiğini buraya atayacağız.Daha sonra while döngüsü ile 1 ile 4 arasında bir işlem girilmesi için while döngüsünü kullanıyoruz.
+Daha sonra sayı 1 için ve sayı 2 için s1 ve s2 adında değişkenleri atıyoruz.Sonra if ile de hangi islem girildiğine bakıyoruz ve eğer 1 girildi ise toplama 2 girildi ise çıkartma 3 girildi ise çarpma 4 girildi ise de bölme yapıyoruz.Daha sonra içine girildiğinde kullanıcıya yazdırıyoruz.Burada tek bir nokta var bölme yerinde s1 ve s2 için float değer olarak yaparsanız 5 / 3 mesela int olursa 1 gösterirken float değer olarak yaptığımızda 1.666 olarak gösterecektir.
+Kodumuz:
+
+```java
+import java.util.Scanner;
+
+public class soru3 {
+
+    public static void main(String[] args){
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("İşlem Menüsü\n1-Toplama\n2-Çıkarma\n3-Çarpma\n4-Bölme\n");
+
+        int islem;
+        while(true){
+
+            System.out.println("Lütfen İşlem Seçiniz (1-4) :");
+            islem = scanner.nextInt();
+
+            if(islem > 0 && islem < 5) {
+                System.out.println("Lütfen 1 ile 4 arasında bir sayı giriniz");
+                break;
+
+            }
+        }
+
+        System.out.println("1.Sayı:");
+        int s1 = scanner.nextInt();
+
+        System.out.println("2.Sayı:");
+        int s2 = scanner.nextInt();
+
+        if(islem == 1){
+
+            System.out.println(s1 + " + " + s2 + " = " + (s1+s2));
+
+        }
+        else if(islem == 2){
+
+            System.out.println(s1 + " - " + s2 + " = " + (s1-s2));
+
+        }
+        else if(islem == 3){
+
+            System.out.println(s1 + " * " + s2 + " = " + (s1*s2));
+
+        }
+        else if(islem == 4){
+
+            System.out.println(s1 + " / " + s2 + " = " + ((float)s1/(float)s2));
+
+        }
+
+
+
+    }
+
+
+
+
+}
+
+```

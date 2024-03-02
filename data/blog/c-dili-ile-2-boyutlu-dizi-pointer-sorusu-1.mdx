@@ -1,0 +1,110 @@
+---
+title: 'C Dili ile 2 Boyutlu Dizi Pointerı Sorusu | 1'
+date: '2018-11-01'
+lastmod: '2018-11-01'
+tags: ['c','pointer','c progralama dili']
+draft: false
+summary: 'C dilindeki 2 boyutlu dizin pointer sorusu'
+images: ['/static/images/twitter-card.png']
+---
+
+
+## Merhabalar arkadaşlar bugün sizlerle birlikte C dilinde bir sorumuz olacak. Bu sorumuzu nasıl yaptığımı sizlere aktarmaya çalışacağım.
+
+Sorumuz :
+3×4 boyutundaki bir dizinin dışardan girilen bir sayı ile o sayının dizideki indisini silen C dilindeki programı yapacağız ve pointer kullanarak yapacağız.Aynı zaman da silinen elemanın dan sonraki diğer elemanlar yerini doldurarak gelecek ve dizisinin sonundaki indis de 0 olacak.
+Öncelikle kodumuzu yazarken main yerinde kendimiz dizi isminde 3’e 4’lük bir dizi oluşturuyoruz.Daha sonra bu diziyi bir pointer değişkenine atıyoruz.Dizilerde “&” işaretini koymamıza gerek yoktur fakat bu 2 boyutlu bir dizi olduğu için “&” işaretini koymazsak programımız hata verecektir. Daha sonra ilk başta oluşturmuş olduğumuz dizimizi yani Eski Dizimizi yazdırıyoruz.Bunları for döngüsü ile iç içe döngüyü kullanarak i ve j adında değişkenler ile yazdıracağız.Bu i ve j değerleri 0 değeri ile başlayacaktır.Burada en önemli nokta birinci satırı yazdırdıktan sonra içteki döngü bittiğinde bir sonraki satıra geçerek daha düzgün bir görüntü oluşacaktır.
+
+
+| 1 | 2  | 3  | 4  |
+|---|----|----|----|
+| 5 | 6  | 7  | 8  |
+| 9 | 10 | 11 | 12 |
+
+| 1  | 2  | 3  | 4 |
+|----|----|----|---|
+| 5  | 6  | 7  | 8 |
+| 10 | 11 | 12 | 0 |
+
+Daha sonra while döngüsü ile bir döngü oluşturuyoruz. While döngüsü içine 1 değerini veriyoruz ve bu döngünün her zaman döneceğini ifade eder. C dili ile yazdığımız için 1 değerini veriyoruz eğer C++ ile yazmış olsaydık “true” değerini de verebilirdik. Bu While ile istediğimiz değerler aralığında olmasını istiyoruz eğer istediğimiz değerler arasında değil ise while döngüsü ile tekrar tekrar dönerek aynı yerde takılıyor.Ta ki istediğimiz aralıkta yani 0’da 11’e kadara değerleri girilene kadar, dizilerde başlangıç değeri olarak 0’dan başladığı için ve 12 elemanlı olduğu için en fazla 11. indise kadar gidebilecektir.Burada böyle bir işlem ile kullanıcının belirli bir değer girmesi istemiş olduk.
+Daha sonra ise silinecek indisin içindeki değeri ve adresini bastırıyoruz.
+Daha sonra for döngüsü ile silinecek yerden başlayarak indisin bir sonraki değerini silinecek yerin indisine aktararak en sondaki indise kadar gidecektir fakat en son değere geldiğinde bir sonraki değeri alırsa diziden çıkacaktır ve o anki bilgisayar da olan herhangi bir değeri alacaktır.O yüzden orada bir if şartı ile 11.indise geldiğinde oradaki değeri 0 yapacak.
+En sonunda da Yeni Dizimiz ile kullanıcıya printf yardımı ile yazdırılacak ve daha sonra 2 boyutlu dizilerde yazdırma olan iç içe döngü ile yeni dizimizi yazdırmış olacağız.
+
+### Aşağıda kodun hepsini görebilirsiniz.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+		int dizi[3][4] = {1,2,3,4,5,6,7,8,9,10,11,12};
+
+	int *p = &dizi[0][0];
+	int sil;
+	int i=0,j=0;
+	printf("*************Eski Dizimiz*************\n\n");
+	for(i = 0; i < 3; i++){
+
+		for(j=0; j < 4 ; j++){
+			printf("%d	",dizi[i][j]);
+		}
+		printf("\n");
+
+	}
+
+	while(1){
+
+		printf("\n***************************************\n\n");
+
+		printf("Silmek Istediginiz Indis (0-11) :");
+		scanf("%d",&sil);
+
+		if(sil >= 0 && sil < 12 ){
+			break;
+		}
+		else{
+
+		printf("*************Lutfen Gecerli bir sayi giriniz*************");
+
+		}
+
+
+	}
+
+
+
+	printf("Silenecek indis'in Adresi : %x Degeri : %d\n\n",p+sil,*(p+sil));
+
+		for(; sil < 12 ;sil++){
+
+			if(sil == 11){
+
+				*(p+sil) = 0;
+
+			}else{
+
+				*(p+sil) = *(p+sil+1);
+
+			}
+
+
+		}
+
+	printf("*************Yeni Dizimiz*************\n\n");
+
+	for(i = 0; i < 3; i++){
+
+		for(j = 0; j < 4 ; j++){
+			printf("%d	",dizi[i][j]);
+		}
+		printf("\n");
+
+	}
+
+	return 0;
+}
+
+```

@@ -1,0 +1,51 @@
+---
+title: 'Java Dili ile Giriş Seviyesi Basit Soru – Cevap | 1'
+date: '2018-11-07'
+lastmod: '2018-11-07'
+tags: ['java', 'algoritma', 'java programlama sorusu']
+draft: false
+summary: 'Java ile programlama dili ile soru-cevap 1'
+images: ['/static/images/twitter-card.png']
+---
+
+
+## Merhaba arkadaşlar bugün sizlere Java Programlama dili ile ilgili basit kolay bir soru ve cevabımız var.Bu soru basit düzeyde olduğu için java’ya giriş yapanlar için önerilir.
+
+Sorumuz:
+Aşağıdaki bilgileri dikkate alarak ilgili java kodunu yazınız.
+* String sınıfından str1 ve str2 adında iki tane nesne oluşturunuz.
+* Oluşturulan bu stringlerin uzunluklarını ve uzun olan stringi konsol ekranda yazdırınız.
+* Son olarak str1 deki stringi str2 ye , str2 deki stringi str1 e atayınız. (swap işlemi)
+Öncelikle str1 ve str2 diye 2 tane string sınıfında nesne oluşturuyoruz.Daha sonra if koşulu ile str1.length ile string nesnesinin uzunluğunu alıyoruz ve str2.length ile de str2’nin uzunluğunu alıyoruz. Eğer str1 büyük ise 1.koşula girecektir. Eğer str2 büyük ise 2.koşula girecektir ve yazdırma işlemini yapacaktır.
+Alt kısımda da kontrol adında bir string nesnesi oluşturdum.Daha sonra bunu str1’in içindeki değeri atadım.”Bu işlemi şey gibi düşünebilirsiniz elimizde süt ve su olsun bir bardakta süt olsun diğer bardakta ise süt var eğer bu bardakları değiştirmek istersek. Üst üste koyarsak süt ile su karışacaktır.Ama fazladan bir bardak olursa o bardağa süt koyarsak karışmamış olur.Böylelikle istediğimiz sonucu alırız.” Daha sonra str1’in içine str2’yi atadım ve str2’ye de kontrol değişkeni içindekini atamış oldum.
+
+
+```java
+public class soru1 {
+
+    public static void main(String[] args){
+
+        String str1 = "Eray";
+        String str2 = "Kısabacak";
+
+        if(str1.length() > str2.length()){
+
+            System.out.println("En uzunu : " + str1);
+        }
+        else{
+
+            System.out.println("En uzunu : " + str2);
+        }
+
+        System.out.println("str1 : " + str1 + " str2 : " + str2);
+        String kontrol = str1;
+
+        str1 = str2;
+        str2 = kontrol;
+
+        System.out.println("str1 : " + str1 + " str2 : " + str2);
+
+    }
+
+}
+```

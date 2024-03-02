@@ -1,0 +1,49 @@
+---
+title: 'Java Programlama Dili ile Soru – Cevap | 2'
+date: '2018-11-16'
+lastmod: '2018-11-16'
+tags: ['java', 'algoritma', 'java programlama sorusu']
+draft: false
+summary: 'Java ile programlama dili ile soru-cevap 2.'
+images: ['/static/images/twitter-card.png']
+---
+
+
+## Merhabalar arkadaşlar bugün sizlere Java Programlama Dili ile Sorusu ve Cevabı olan bir yazı ile birlikteyiz.
+
+Aşağıdaki bilgileri dikkate alarak ilgili java kodunu yazınız.
+* Kullanıcıdan bir tam sayı alınsın.
+* Bu sayıdan küçük kaç tane tam kare sayı olduğu bulunsun ve adet bilgisi konsol ekrana çıktı olarak yazdırılsın.
+Öncelikle Scanner kütüphanesi yardımıyla kullanıcıdan giriş almayı sağlayacağız.
+Scanner scanner = new Scanner(System.in); kodu ile öncelikle nesneyi oluşturuyoruz.
+Daha sonra kacsayivar diye bir değişken tanımlıyoruz ve bu değişken girilen sayıya kadar kaç tane sayının olduğunu bize gösterecektir.Daha sonra kullanıcıya sayı girmesi için bir println ile yazdırıyoruz.Daha sonra yazılan sayının değere atanması için int sayi = scanner.nextInt(); diyoruz.
+Daha sonra for döngüsü ile i 0‘dan başlayarak sayıya kadar gidecektir.Tam kare derken
+1*1 = 1
+2*2 = 4 gibi gibi devam ediyor kullanıcı ne kadar sayı girdi ise oraya kadar gidecektir.Sayıya aştığında döngüden çıkacak ve daha sonra kaç sayı olduğunu yazdıracak.
+
+```java
+import java.util.Scanner;
+
+public class soru2 {
+
+    public static void main(String[] args){
+
+        Scanner scanner = new Scanner(System.in);
+        int kacsayivar = 0;
+        System.out.println("Sayı Giriniz : ");
+        int sayi = scanner.nextInt();
+
+        for(int i = 0 ; i * i < sayi ; i++){
+
+            kacsayivar++;
+
+        }
+
+        System.out.println(sayi + " 'a kadar " + kacsayivar + " sayı vardır");
+
+
+
+    }
+
+}
+```

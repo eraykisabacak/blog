@@ -1,0 +1,77 @@
+---
+title: 'Java Programlama Dili İle Algoritma Sorusu | 4'
+date: '2018-12-02'
+lastmod: '2018-12-02'
+tags: ['java', 'algoritma', 'java programlama sorusu']
+draft: false
+summary: 'Java ile programlama dili ile soru-cevap 2.'
+images: ['/static/images/twitter-card.png']
+---
+
+
+## Merhabalar Arkadaşlar bugün sizlere giriş seviyesinde bir algoritma soru ile karşınızdayız.Siz tavsiyem öncelikle soruyu deneyin daha sonra yapamaz iseniz ya da yaparsanız da yaptıklarımız arasında fark olabilir.Ben farklı çözmüş olabilirim benim koduma da bakabilirsiniz.Hatta yorum bölümüne de kendi kodunuzu bırabilirsiniz.
+
+### Sorumuz: Klavye ile girilen n tane sayı için aşağıdaki kontrolü yapan bir java programı yazınız. Program öncelikle ilk 2 sayiyi aldiktan sonra 3. sayidan başlayarak peşpeşe şu kontrolü yapsın;
+
+* Alınan sayı önceki 2 sayının çarpımına eşit midir değil midir?
+* Sayet eşitse ekrana bu 3 sayı yazdırılacak ve “evet” mesajı verdirilecek.
+* Değilse ekrana bu 3 sayı yazılacak ve “hayır” mesajı verdirilecek.
+
+Örnek: n=7  alındığını varsayalım. Demek  ki kullanıcıdan 7 tane sayı alınacak.
+3 -5 -2 -4- 8- 9 -72
+
+| Örnek                         | Çıktı         | Çünkü  |
+|-------------------------------|---------------|--------|
+| 3  5  girildi. 2 girildiginde | 3 5 2 hayir   | 3*5 ≠2 |
+| Simdi 4 girildi               | 5 2  4  hayir | 5*2≠4  |
+| 8 girildi                     | 2 4 8 evet    | 2*4=8  |
+| 9 girildi                     | 4 8 9 hayır   | 4*8 ≠9 |
+| 72 girildi                    | 8  9  72 evet | 8*9=72 |
+
+
+Öncelikle kullanıcı girişi alacağımız için scanner kütüphanesini ekleyelim.Daha sonra kullanıcıya kaç tane sayı girmesini istediğini soralım. int sayıgirilecek ile bu sayıyı bu değişkene atayalım.Daha sonra bir dizi yardımıyla girilecek sayıları bir diziye atayalım.Daha sonra for döngüsü ile kullanıcının gireceği sayıları alalım ve scannner yardımıyla bunları diziye atayalım ve sayigirilecek kadar döndürelim.
+Diğer for ile de dizinin ilk ve ikinci indisindeki elemanları çarpalım ve 3.indise eşit mi diye kontrol edelim.Eğer doğru ise kullanıcıya çarpım şeklinde gösterelim ve yanına evet yazalım.Eğer yanlış ise de kullanıcıya çarpımı yazalım ve yanına hayır yazalım.
+Aşağıda kodumuzu görebilirsiniz:
+```java
+import java.util.Scanner;
+
+public class soru2 {
+
+    public static void main(String[] args){
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Kaç tane sayı girmek istiyorsunuz");
+
+        int sayigirilecek = scanner.nextInt();
+
+        int dizi[] = new int[sayigirilecek];
+        int i;
+
+        for( i = 0; i < sayigirilecek ; i++){
+
+            System.out.println("Sayi Giriniz:");
+            dizi[i] = scanner.nextInt();
+
+        }
+
+        for(i = 0; i < sayigirilecek-2;i++){
+
+           if(dizi[i+2] == dizi[i]*dizi[i+1])
+            {
+                System.out.print(dizi[i+2] + " = " + dizi[i] + " * " + dizi[i+1]);
+                System.out.println(" Evet");
+            }
+            else {
+               System.out.print(dizi[i+2] + " = " + dizi[i] + " * " + dizi[i+1]);
+               System.out.println(" Hayır");
+           }
+
+        }
+
+    }
+
+
+}
+ 
+```

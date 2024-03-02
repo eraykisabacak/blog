@@ -1,0 +1,48 @@
+---
+title: 'C Dili ile Dizi Programalama Sorusu | 3'
+date: '2019-01-10'
+lastmod: '2019-02-10'
+tags: ['c','dizi','c progralama dili']
+draft: false
+summary: 'C dilindeki dizi sorusu'
+images: ['/static/images/twitter-card.png']
+---
+
+## Merhaba arkadaşlar C dili ile dizi programlama sorumuz var.Basit bir sorumuz var.
+Sorumuz:
+n elemanlı bir dizinin en büyük ve en küçük elemanları arasındaki farkı bulan bir C programı yazınız.
+Öncelikle dizi adında bir int dizi tanımlıyoruz ve içine değerleri atıyoruz.Daha sonra eleman sayısını bulmak için sizeof dizi / sizeof *dizi yapıyoruz.Daha sonra ben orada kontrol yapmıştım dizinin boyutunu alıyor mu diye sizde yapabilirsiniz.Daha sonra döngü için i = 0 ve en büyük en küçük adında 2 değişken oluşturuyoruz ve bu değişkenlere dizinin ilk değerini atıyoruz.
+Buradaki önemli nokta burasıdır.Eğer 0 değeri atarsanız dizide 0’dan küçükte eleman olabilir.Onun için dizinin ilk elemanını alması daha iyidir.Daha sonra for döngüsü ile dizinin eleman sayısına kadar gidecek.For döngüsüne girdiğinde ilk if de en büyük değeri kontrol edecek 2. if de en küçük olanı kontrol edecek.
+Daha sonra for dan çıkacak, en büyük ve en küçük sayıları bastıracak daha sonra en büyük ile en küçük arasındaki farkı bastıracaktır.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+
+	int dizi[5] = {1,2,3,4,55};
+	int eleman = (sizeof dizi / sizeof *dizi);
+	printf("%d\n",eleman);
+	int i = 0,eb = dizi[0],ek = dizi[0];
+	for(i = 0;i < eleman;i++){
+
+		if(eb < dizi[i]){
+			eb = dizi[i];
+		}
+		if(ek > dizi[i]){
+			ek = dizi[i];
+		}
+	}
+
+	printf("En buyuk sayi : %d\n",eb);
+	printf("En kucuk sayi : %d\n",ek);
+	printf("En buyuk - En kucuk = %d",(eb-ek));
+
+
+	return 0;
+}
+
+```

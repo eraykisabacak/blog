@@ -1,0 +1,42 @@
+---
+title: 'Java Programlama Dili İle Faktöriyel Hesaplama | 3'
+date: '2018-12-16'
+lastmod: '2018-12-16'
+tags: ['java', 'algoritma', 'java programlama sorusu']
+draft: false
+summary: 'Java ile programlama dili ile Faktöriyel Hesaplama 3.'
+images: ['/static/images/twitter-card.png']
+---
+
+
+## Merhaba arkadaşlar bu yazımızda sizlerle beraber Java Programlama dili ile faktöriyel hesabı yapan kodu yazacağız.İsterseniz öncelikle siz deneyip daha sonra benim yazdığım koda bakabilirsiniz.
+
+Sorumuz:
+1. Kullanıcıdan alınan bir sayının faktöriyelini hesaplayan java kodunu yazınız.
+Öncelikle kullanıcıdan sayı alacağımız için Scanner ekleyelim ve nesne oluşturalım.Daha sonra println komutu ile kullanıcıya sayı girmesi gerektiğini söyleyelim.Daha sonra scanner ile değişkene değeri atayalım.Daha sonra toplam değişkeni için faktöriyel hesabı olduğu için 0 vermiyoruz çünkü çarpım yapılacağı için 1 değerini veriyoruz.Daha sonra for döngüsü ile kullanıcının gireceği sayıya kadar i’yi arttıra arttıra gidecektir ve for içinde toplam ile çarpacaktır.
+Kullanıcının verdiği sayıya geldiğinde for’dan çıkacak ve faktöriyel hesabını kullanıcıya gösterecektir.
+
+
+```java
+import java.util.Scanner;
+
+public class soru1 {
+
+    public static void main(String[] args){
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Lütfen Faktöriyelini Hesaplamak İstediğiniz Sayıyı Giriniz:");
+        int faktoriyel = scanner.nextInt();
+        int toplam = 1;
+        for(int i = 1; i <= faktoriyel ; i++){
+
+            toplam *= i;
+        }
+
+        System.out.println(faktoriyel+"! = "+toplam);
+
+    }
+
+}
+```
