@@ -1,0 +1,50 @@
+---
+title: 'C# – Ajanda Yazılımı – Personel Girişi ve FileStream Dosya İşlemleri'
+date: '2019-09-14'
+lastmod: '2019-09-14'
+tags: ['C# – Ajanda Yazılımı – Personel Girişi ve FileStream Dosya İşlemleri']
+draft: false
+summary: 'C# – Ajanda Yazılımı – Personel Girişi ve FileStream Dosya İşlemleri'
+images: ['/static/images/twitter-card.png']
+---
+## NYP ilkeleri ile geliştirilecek personel bilgilerini tutan bir Ajanda yazılımı tasarlamanız istenmektedir. Bu amaçla kullanılmak üzere aşağıda verilen Form tasarımlarını yapmalıdır. Ayrıca personel bilgilerine erişmek ve sorgulama işlemlerinde kullanmak üzere Personel.cs ve Ajanda.csisminde iki sınıf tasarlanacaktır. Girilen kayıtlar dosyaya kaydedilecek ve program kapatıldığında bilgi kaybı olmayacaktır. Program yeniden çalıştırıldığında veriler dosyadan okunacak ve çalışmaya devam edecektir. Veri tabanı kullanılması istenmemektedir.
+
+Program çalıştırıldığında ilk olarak Login Penceresi gelecek ve Kullanıcı Adı – Şifre eşleşmelerini “users.txt” dosyasından kontrol edilecek. Yetkili bilinen bir kullanıcı ise Login formu gizlenecek; Ana Form açılacak.
+
+Ana Formun Menustrip kontrolünde Görünüm sekmesinden yeni veri kaydı yapılacak olan Personel Kayıt Ekranına ve Arama Ekranlarına erişim sağlanacaktır.
+
+Tasarlanacak Personel sınıfı için;
+<br/>a)Personel bilgilerinin ( Ad, Soyad, Doğum Tarihi, Meslek, Cinsiyet, Medeni durum ve maaş ) ve sorgulama metotlarının kodlanacağı bir sınıf tasarlayın. Tüm alanlar için uygun veri türlerini belirleyin.
+<br/>b)Sınıftaki tüm değişkenler için property tanımlamalarını yapın.
+<br/>c)Personel adını ve soyadını parametre olarak alan bir kurucu metot tanımlayın.
+<br/>d)Yaş adında bir sadece get bloğu olan bir property tanımlayın. Bu property için doğum_tarihi değişkenine bağlı olarak personelin yaşını geri dönderecek şekilde kodlamasını yapın.
+<br/>e)Cinsiyet ve Medeni Durum alanları için enum tanımları yapın.
+<br/>f)ZamYap, KalanGünSayısı, DosyadanOku, DosyayaYaz isimlerinde 4 metot tasarlamanız gerekmektedir:
+<br/>ZamYap Metodu: Parametre olarak verilen miktar kadar personelin maaş değişkeninin değerini günceller.
+KalanGünSayısı Metodu: 57 yaş baz alınarak personelin emekliliğine kalan gün sayısını hesaplar ve geri dönüş değeri olarak verir.
+DosyadanOku Metodu: Belirli bir konumda tutulan “data.txt” isimli dosyadan kayıtların tamamını okur ve her biri için Personel nesnesi oluşturur. Bunları Personel tipinde bir diziye yerleştirip ve bu diziyi geri dönüş değeri olarak verir. Amacı program başlangıcında kayıtların okunmasıdır.
+i.Birinci yöntem olarak; burada henüz bilmediğiniz (!) Generic List yapılarını araştırıp kullanabilirsiniz.
+Örnek: List```<Personel> liste = new List<Personel>();```
+ii.İkinci bir yöntem olarak; dosyanın ilk satırında toplam kayıt sayısını tutarak kaç elemanlı bir dizi oluşturacağınızı bilebilirsiniz.
+Örnek:```Personel[] kayıt= new Personel[1000];```
+
+iii.Bu biçimlendirmeyi okumak için String sınıfının Split metodundan faydalanabilirsiniz.
+DosyayaYaz Metodu: Personel kayıt listesini parametre olarak alır ve “data.txt”isimli dosyaya aşağıdaki biçimlendirmeye uygun şekilde herbir satıra bir kayıt olacak biçimde dosyayı oluşturur.
+Örnek Kayıt Biçimlendirmesi şu şekilde olmalıdır:
+ad | soyad | dogum_tarihi | meslek | cinsiyet | medeni_durum | maas | email | adres | telefonlar
+Burada telefonlar ajanda nesnesinden alınacağı için birden fazla olabilir:
+telefonlar : telAdı1,telNo1 + telAdı2,telNo2 + telAdı3,telNo3
+Bu biçimlendirmeyi oluşturmak için String sınıfının Join metodundan faydalanabilirsiniz.
+Bir personelin birden fazla telefon bilgisi (ev, iş, GSM, GSM2, vb.) olabilir. Bu nedenle telefonları tutmak amacıyla Ajanda.cs isminde bir sınıf tasarlamanız istenmektedir. Ajanda sınıfında telefonAdı ve telefonNo isimli uygun türlerde iki değişken tanımlamasını ve bu değişkenlerin property tanımlamalarını yapınız. Ayrıca uygun bir kurucu metot tanımlayınız.
+Örnek:telefonAdı = ev , telefonNo = 332 223 33 36
+Daha sonra Personel sınıfı içinde bir Ajanda dizisi oluşturun ve o personele ait telefonları bu diziye ekleyin. (Not:Ajanda dizisini generic list olarak veya 10 elemanlı bir dizi olarak oluşturabilirsiniz. )
+DİKKAT EDİLMESİ GEREKENLER
+1.Ana Form MdiParent olarak, diğerleri child formlar olarak çalışacaktır.
+2.Sınıflar için yukarıda tanımlayacağınız metot ve değişkenlerin tamamı form arayüzünde kullanılmayacak olabilir. Önemli olan sizden istenilenlerin eksiksiz yapılmasıdır.
+3.Personel Kayıt işlemi aşağıda tasarımı görülen form üzerinden yapılacaktır. Bu esnada tasarlanacak olan Personel ve Ajanda sınıflarının kullanılması zorunludur. Sınıflar kullanılmadan yapılan ödevler bütünüyle geçersiz sayılacaktır.
+4.Personel Kayıt Arama Ekranında personel adına göre arama işlemi yapılacak; ilk bulunan kayıt bilgileri yeni bir FormKayıt Penceresi içinde gösterilecektir.
+5.30.05.2019 Perşembe günü ders saatinde şahsen yapılacaktır. Kontrole gelmeyenlerin ödevleri geçersiz sayılacaktır.
+6.Dosya adı: öğrenci_numarası.rar şeklinde olmalıdır.
+
+### Kodlar : https://github.com/eraykisabacak/Ajanda-Yaz-l-m-
+

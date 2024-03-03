@@ -1,0 +1,52 @@
+---
+title: 'Java Erişim Belirleyicileri'
+date: '2019-02-03'
+lastmod: '2019-02-03'
+tags: ['Java Erişim Belirleyicileri','java','erişim belirleyicileri']
+draft: false
+summary: 'Basit bir kapı ikaz sistemi projesini sizlere aktarmaya çalışacağım'
+images: ['/static/images/twitter-card.png']
+---
+
+## Java’da erişim belirleyiciler bir değişkenin veya bir metodun nerede ulaşılabileceğini nereden ulaşılamayacağını belirler.
+
+Java’da erişim belirleyiciler daha çok nesneye yönelik programlama önemli konulardan bir tanesidir. Erişim belirleyicilerinin 4 tane farklı farklı özelliklere sahip olan erişim belirleyici vardır. Bunlar;<br/>
+
+Public <br/>
+Private <br/>
+Protected <br/>
+Default <br/>
+
+Bu erişim belirleyicilerini bir tablodan anlatmak gerekirse şöyle bir tablo ortaya çıkacaktır.
+
+| Erişim Belirleyiciler | Aynı Paketteki Tüm Sınıflarda | Aynı Paketteki Kalıtılmış Sınıflar | Farklı Paketlerdeki Tüm Sınıflar | Farklı Paketlerdeki Kalıtılmış Sınıflar |
+|-----------------------|-------------------------------|------------------------------------|----------------------------------|-----------------------------------------|
+| Public                | Evet                          | Evet                               | Evet                             | Evet                                    |
+| Private               | Hayır                         | Hayır                              | Hayır                            | Hayır                                   |
+| Protected             | Evet                          | Evet                               | Hayır                            | Evet                                    |
+| Default               | Evet                          | Evet                               | Hayır                            | Hayır                                   |
+
+1.Public
+Tüm sınıflardan ve farklı paketlerden erişilebilen erişim belirleyicisidir.
+
+2.Private
+Bu erişim belirleyicinin sadece kendi sınıfının içinde erişilebilir. Aynı pakette olan diğer sınıflardan da erişilemez veya farklı paketlerden hiç bir türlü erişilemez.
+
+3.Protected
+Sadece kendi paketinde olan sınıflardan veya kalıtılmış olan sınıflardan protected değişkenine veya metoduna ulaşılabilir.
+
+4.Default
+Eğer herhangi bir erişim belirleyici yazılmış ise Java otomatik olarak bu erişim belirleyicisini atacaktır. Diğer bir adıda friendly’dir. Aynı paketteki sınıflar ulaşabilir.
+
+Eğer bu erişim belirleyicilerini nerede kullanılıyor gibi bir soru sorarsanız bunlar nesneye yönelik programlama da ilk girişidir. Hangi değişkenin veya metodun nereye ulaşabileceğini bunlar sınırlama yaparlar. Nesneye yönelik programlamada birçok farklı konu vardır. Bunlar;
+
+Constructor<br/>
+Overloaded<br/>
+Overriding<br/>
+Inheritance<br/>
+Abstraction<br/>
+Encapsulation<br/>
+Polymorphism<br/>
+Interface<br/>
+
+Bunlar nesneye yönelik programlamanın konularıdır. Diğer makalelerimizden görebilirsiniz.

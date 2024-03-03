@@ -1,0 +1,29 @@
+---
+title: 'Laravel 8 Routing Değişimi'
+date: '2020-09-18'
+lastmod: '2020-09-18'
+tags: ['Laravel 8 Routing Değişimi']
+draft: false
+summary: 'Laravel 8 Routing Değişimi'
+images: ['/static/images/twitter-card.png']
+---
+Laravel 8 de yeni gelen güncelleme ile birlikte routing yapısında bir değişikliğe gitmektedir.
+Basit bir tane Home Controller oluşturdum ve routes klasöründen web.php dosyasına girdiğimde bir get istediği oluşturdum.
+
+![abcd](/static/images/laravel8/laravel1.jpg)
+
+Önceki versiyonlar da gelmesi gereken sayfa yerine bir hata ile karşılaşıyoruz.
+![abcd](/static/images/laravel8/laravel2.jpg)
+Laravel 8 de biraz farklılık göstererek controller import ediyoruz ve farklı bir sytax da yazıyoruz.
+
+![abcd](/static/images/laravel8/laravel3.jpg)
+Başka bir kullanım şekil ise tam controller yazarakta kullanabiliyoruz.
+
+![abcd](/static/images/laravel8/laravel4.jpg)
+Eski Syntax ile Yazmak İçin Ayarlar
+Eğer hiç bu şekilde yazmak istemezseniz ise önceki versiyonlardaki gibi kullanmak istersek. Providers klasörü altındaki RouteServiceProvider.php dosyasına giderek.
+
+![abcd](/static/images/laravel8/laravel5.jpg)
+Namespace yerine controllers olduğu klasörü vermeliyiz ve boot fonksiyonu içerisine de namespace ekleyerek eski veriyonlar gibi kullanabiliriz.
+
+![abcd](/static/images/laravel8/laravel6.jpg)

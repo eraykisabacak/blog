@@ -1,0 +1,99 @@
+---
+title: 'Tasarım Desenleri (Design Pattern) Nedir? Anti Pattern Nedir?'
+date: '2019-10-14'
+lastmod: '2019-10-14'
+tags: ['Tasarım Desenleri (Design Pattern) Nedir? Anti Pattern Nedir?']
+draft: false
+summary: 'Tasarım Desenleri (Design Pattern) Nedir? Anti Pattern Nedir?'
+images: ['/static/images/twitter-card.png']
+---
+
+## Tasarım desenleri nesneye yönelik programlama dillerinde sürekli olarak ortaya çıkan sorunlara çözüm getiren kalıplardır. Farklı bir sorunla karşılaşan bir programcı bu patternlere bakarak sorunu hızlı bir biçimde çözümleyebilecektir.
+
+### Algoritma değildir. Uygulamanın geliştirilebilirliği ve kalitesinin artırır. Gelişme süresini azaltır. 3 ana başlıkta bunları toplayabiliriz.
+
+<br/>
+
+### 1- Creatinal Pattern (Kurucu Desenler) :
+Kurucu desenler nesnelerin oluşturulmasında ve yönetilmesinde kullanılan bir desendir.
+Bu başlıktaki patternler :
+* Abstract Factory
+* Builder
+* Factory Metod
+* Object Pool
+* Prototype
+* Singleton
+
+<br/>
+
+### 2- Behavioral Pattern (Davranışsal Pattern):
+Birden fazla sınıfın bir işi yerine getirirken nasıl davranacağını belirlerken kullanılan bir desenlerdir.
+Bu başlıktaki patternler :
+* Adapter
+* Bridge
+* Composite
+* Decorator
+* Facade
+* Flyweight
+* Proxy
+
+<br/>
+
+### 3- Structual Pattern ( Yapısal Desenler):
+Nesnelerin birbirleri ile ilişkisini düzenleyen desendir.
+Bu başlıktaki patternler :
+* Chain of Responsibility
+* Command
+* Interpreter
+* Iterator
+* Mediator
+* Memento
+* Observer
+* State
+* Strategy
+* Template Method
+* Visitor
+
+### Anti Pattern Nedir?
+Anti patternler de bir patterndir ama yazılımsal olarak bir problemi kabul edilmiş bir pattern olarak kullanmak yerine özgün bir yöntem ile çözmek demektir. Bu anti patternlerin bir dökümante edilmiştir. Bu dökümante olmasının avantajı ise programcının bu yöntemlerden mümkün olduğunca uzak olması daha iyi olacaktır.
+<br/>
+Bazı anti patternler:
+* Magic Push Button
+* Spagetti Coding
+* Functional Decomposition
+* Error Hidding
+* Swiss Army Knife
+* Cricular Dependency
+* God Object
+* Cargo Cult Programming
+* Golden Hammer
+* Boat Anchor
+* Copy Paste Programming
+<br/>
+
+<b>Magic Push Button :</b>
+Kullanıcı arayüzü ile iş mantığını tek noktadan birleştirilmiş, sihirli butona tıklayarak form gönderme, arayüz doğrulama gibi.
+<br/>
+<b>Spagetti Coding:</b>
+Spagetti coding, aynı spagetti gibi her şey farklı bir yerde düzgün değil ve karmaşık yapıdaki kodlama.
+<br/>
+<b>God Object:</b>
+God Object, İngilizceden Türkçeye çevirdiğimizde Tanrı Nesnesi yani bir nesne var bütün program o nesnede çok fazla veri ve method barındırmasıdır.
+<br/>
+<b>Cargo Cult Programming:</b>
+Desen ve methodları ne, neden ve niçin olduğunu anlamadın kullandığımız desendir. Copy paste gibidir.
+<br/>
+<b>Circular Dependency:</b>
+Circular dependency, bir class içindeki başka bir class’ın referansı bulunuyor fakat o class’ın içinde de önceki class’ın referansı bulunuyor. Böylelikle döngü haline gelerek Gargabe Collector’un işini yapmamıyor.
+<br/>
+<b>Boat Anchor :</b>
+Boat Anchor, herhangi bir amaçla kullanılmayan bir sistem parçasını unutmak veya tutmak
+<br/>
+<b>Golden Hammer:</b>
+Golden Hammer, favori bir çözümü vardır ve her sorun için aynı çözümü uygulamaya çalışır.
+<br/>
+<b>Functional Decomposition</b>
+Her fonksiyon için ayrı bir class açmak.
+<br/>
+<b>Error Hidding</b>
+Programın hata vermesine rağmen her yere try catch blokları koyarak bunu kullanıcıya göstermemek.

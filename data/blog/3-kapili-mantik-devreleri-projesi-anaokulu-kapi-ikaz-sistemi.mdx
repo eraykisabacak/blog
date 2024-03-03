@@ -1,0 +1,34 @@
+---
+title: '3 Kapılı Mantık Devreleri Projesi – Anaokulu Kapı İkaz Sistemi'
+date: '2019-01-23'
+lastmod: '2019-01-23'
+tags: ['3 Kapılı Mantık Devreleri Projesi','mantık devreleri']
+draft: false
+summary: 'Basit bir kapı ikaz sistemi projesini sizlere aktarmaya çalışacağım'
+images: ['/static/images/twitter-card.png']
+---
+
+## Merhabalar bu yazımda Mantık Devreleri dersinde yapmış olduğum basit bir kapı ikaz sistemi projesini sizlere aktarmaya çalışacağım.
+
+### Sorumuz gelecek olursak bir tane anaokulundaki 4 kapının A. ve B. kapılardan sadece bir tanesi açık olması lazım eğer 2 tanesi açık olursa ikaz verecek. Kapı C. ve D. kapılar herhangi birisinin açık olması ile de ikaz verecek.
+
+<b>Materyeller</b>
+* 330R Direç
+* Erkek Erkek Jumper Kablo
+* Bread Board
+* Led
+* 74HC08 Entegresi (VE)
+* 74HC32 Entegresi (VEYA)
+* Buton
+* 5 Volt Çıkış veren adaptör
+<br/>
+<b>Doğruluk Tablosu</b>
+
+Q=(A ̅.B ̅.C ̅.D)+(A ̅.B ̅.C ̅.D)+(A ̅.B ̅.C.D)+(A ̅.B.C ̅.D)+(A ̅.B.C.D ̅)+(A ̅.B.C.D)+(A.B ̅.C ̅.D ̅)+(A.B ̅.C ̅.D)+(A.B ̅.C.D ̅)+(A.B ̅.C.D)+(A.B.C ̅.D ̅)+(A.B.C ̅.D)+(A.B.C.D ̅)+(A.B.C.D)
+Üstü çizgili olanlar değili ifade eder. Böylelikle sonuç çıkmış olur fakat sadeleştirmek için karnaugh haritasına aktarmamız lazım.
+
+<b>Karnaugh Haritası</b>
+Mavi yerden : AB
+Yeşil yerden : D
+Kırmızı yerden : C gelecektir. Yani <b>Q = AB + D + C</b> gelecektir.
+Daha sonra devre şemasına çizecek olursak.

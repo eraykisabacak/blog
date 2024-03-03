@@ -1,0 +1,113 @@
+---
+title: '555 Timer Kullanarak 0-99 Sayıcı Devresi Mantık Devreleri Dersi Proje Yapımı'
+date: '2019-07-06'
+lastmod: '2019-07-06'
+tags: ['555 Timer Kullanarak 0-99 Sayıcı Devresi Mantık Devreleri Dersi Proje Yapımı']
+draft: false
+summary: '555 Timer Kullanarak 0-99 Sayıcı Devresi Mantık Devreleri Dersi Proje Yapımı'
+images: ['/static/images/twitter-card.png']
+---
+1.GİRİŞ <br />
+Mantık devreleri dersinde görmüş olduğumuz 4033 entegresi, kapasitörler 7 segment ve clock palsi vermek için 555 timer konularından bir projeyi hayata, çalışır duruma getirmemiz gerekli.
+Bu projeyi yaparken breadboard’un nasıl kullanıldığını, 555 Timer nasıl kullanıldığını nasıl breadboard’a bağlanacağını nasıl çalıştırılacağını gibi şeyler bana kattı. Bu entegreleri kullanırken bana 9 voltluk pil ile çalışmadığını öğrendim ve hemen adaptör alarak bu sorunun üstesinden geldim. Daha sonra internetten araşmalar yaparak entegrelerin ve butonların breadboard’a nasıl takılması gerektiğini videolar ve makaleler yardımıyla öğrenmeye çalıştım. Aynı zaman da projeye başlamadan önce bir simulasyon yapabilmek için de Proteus programını kullanarak nasıl yapılacağını öğrenmeye çalıştım. Bazen hatalarım oldu nasıl yapılacağını nasıl devrenin yapılacağını anlayamadım ama araştırmalar yaparak projeyi başarılı bir şekilde çalıştırdım ve yaptım.  
+2.MATERYEL VE YÖNTEM<br />
+Projenin yapımında kullanılan materyaller şunlardır:
+* 150R Direnç
+* 555 Entegre
+* 4033 Entegre
+* 10 uF Kapasitör
+* 7 Segment Display
+* Kırmızı Led
+* Erkek Erkek Jumper Kablo
+* Bread Board
+* 5 Volt Çıkış veren Adaptör
+Projeyi yapmak için Fatih BAŞÇİFTÇİ hocamızın sayfasındaki konu anlatımlarından faydalandım ve konuları internet üzerinden aramalarımla bilgi edindim.
+3.PROJE YAPIM AŞAMASI<br />
+ Projemiz 2 tane seven segmentten oluşacak.1 tane 555 timer entegresi kullanılacak. 555 timer bize clock palsleri üretecek. 555 entegresinden çıkan clocklar daha sonra 4033 entegresinin clock girişine bağlanacak. Daha sonra bu clocklar tek tek A’ya clock verecek daha sonraki clock palsinde B’ye verecek tek tek A’dan G çıkışına kadar vererek ilerleyecek. En son G’ye geldiğinde bir sonrakinde tekrardan başa dönecek.Bu A B’ler daha sonra seven segmentin a b c’ye direk olarak bağlacak. 2 tane 4033 kullandığımız için birinci 4033’ün 1 tekrarı CO çıkışından yani fazlalık olduğundan bunu ikinci 4033’ün clock palsine verecek. Düzgün bir şekilde VCC ve GND bağladığımızda çalışacaktır.
+Projemizin Proteus’daki simulasyonunu aşağıda görebilirsiniz.
+
+￼
+ 
+4.PROJE’DE KULLANDIĞIM ELEMANLAR<br />
+4.1. Direnç<br />
+Direncin kelime anlamı, “bir şeye karşı gösterilen zorluktur” olarak tanımlanır. Devre elemanı olan dirençte devrede akıma karşı bir zorluk göstererek akım sınırlaması yapar. Elektrik enerjisi direnç üzerinde ısıya dönüşerek harcanır. Direncin birimi ”Ohm” ‘dur. Ohm ‘un ast katları; pikoohm, nanoohm, mikroohm, miliohm, üst katları ise; kiloohm, megaohm ve gigaohm ‘dur.Direnç “R” veya “r” harfi ile gösterilir.
+
+￼
+Dirençler devrelerde ne için kullanılır;
+* Devreden geçen akımı sınırlayarak belli bir değer tutmak,
+* Devrenin besleme gerilimini bölüp küçülterek diğer elemanların çalışmasını sağlamak
+* Hassas devre elemanlarının yüksek akımdan zarar görmesini engellemek
+* Yük (alıcı) görevi yapmak ve ısı enerjisi elde etmek gibi amaçlarla kullanılır.
+4.1.1. Dirençler Çeşitleri;
+Karbon karışımlı dirençler: Bu tip dirençler toz halindeki karbonun dolgu maddesi ve reçineli tutkal ile karışımından üretilir. Karbon dirençler tolerans oranları yüksek olan ve değerleri direnç eskidikçe değişebilen dirençlerdir. Karbon dirençler büyük değerli dirençlerin yapılmasına uygundur. Karbon dirençler küçük akımlı devrelerde kullanılır ve güçleri 1/10 W ile 5 W arasında değişmektedir. Karbon dirençlerin değerleri renk koduyla kodlanmıştır.
+Film dirençler (ince tabakalı direnç): Film dirençler elektrik akımına karşı direnç gösteren bir maddenin, seramik bir çubuğun etrafına kaplanmasıyla elde edilen dirençlerdir. Film dirençlerin; karbon film dirençler, metal film dirençler, metal oksit film dirençler, metal cam karışımı film dirençler ve cermet (seramik-metal) film dirençler gibi çeşitleri bulunmaktadır. Film dirençlerin tolerans (hata) oranları %1-2 gibi çok küçük değerlerdir. Düşük tolerans değerleri ve yük altındaki yüksek kararlılıkları nedeniyle film dirençler hassas yapılı elektronik devrelerde sıklıkla tercih edilir.
+Tel sarımlı (taş) dirençler: Taş dirençler; krom-nikel, nikel-gümüş, konstantan, tungsten, manganin vb. Maddelerden üretilmiş tellerin porselen, bakalit, amyant gibi ısıya dayanıklı olan bir madde üzerine sarılması ile üretilen dirençlerdir. Taş dirençler büyük güçlüdürler, bu nedenle de yüksek akım çeken devrelerde kullanılmaları uygundur. Aynı sebepten dolayı taş dirençlerin yaydıkları ısı da yüksek olacağından devre üzerinde bu tip dirençlerin yakınına elektrolitik kondansatör, diyot, transistör, entegre vb. ısıdan çabuk etkilenen elemanlar monte edilmemelidir. Taş dirençler küçük değerli dirençlerin yapılması için uygundur. Taş dirençlerin değerleri gövdeklerinde yazılıdır ve güçleri 2 W ile 225 W arasındadır.
+4.1.2. Dirençler Bağlantı Türleri;
+Paralel bağlantı: Paralel bağlantıda formül 1 /RToplam = ( 1 /R1 ) + ( 1 /R2 ) + ( 1 /R3 ) + ( 1 /R4 ) şeklindedir. İşlemler yapılmadan önce tüm değerler aynı yani ohm, Kohm veya Mohm cinsine dönüştürülmelidir.
+￼
+Seri bağlantı: Yan taraftaki resimde dört adet direncin birbirine seri bağlanmıs durumu görülmektedir. A ve B uçlarındaki toplam direnç değerinin hesaplama formülü, RToplam = R1 + R2 + R3 + R4 şeklindedir.
+￼
+4.2 Kapasitör<br />
+Kondansatörler(sığaçlar) ya da diğer ismiyle kapasitörler, elektrik enerjisini elektrik alan olarak depolayan iki uçlu bir devre elemanlarıdır. Temelde iki adet iletken plakanın arasına yalıtkan bir madde koyulması ile elde edilir. Devrede ve denklemlerde C harfi ile gösterilir ve birimi Farad (F)‘dır.
+￼
+
+Kondansatörler doğru akımı (DC) iletmeyip, alternatif akımı (AC) iletme özelliğine sahiptir. Bu özellikleri sayesinde çoğu devrede farklı amaçlar ile kullanılırlar. Güç kaynağı devrelerinde filtrelemede, rezonans devrelerinde istenilen frekansı üretmede ve güç aktarım hatlarında gerilim düzenlenmesi ve güç akışının kontrolünde kullanılırlar.Kondansatör’ün 6 tane çeşidi bulunur. Seramik Kapasitör, Elektrolit Kapasitör, Tantal Kapasitör, Mika Kapasitör, Trimer Kapasitör, Süper Kapasitör.
+Seramik Kapasitör, mercimek kapasitör de deniliyor. Ses ve RF devrelerde tercih edilir. Ucuz ve güvenilirdir.
+Elektrolit Kapasitör, Polarize tipte kutuplu bir yapısı vardır. Yüksek kapasite değerlerini sağlayabilirler. Silindiriktir. Düşük frekans işlerinde kullanılır.
+Tantal kapasitör, Elektrolit kondansatör gibi tantal kapasitörde kutuplu yapısı vardır. Boyutlarına oranla yüksek kapasite değerleri sunabilirler.  Ters gerilme toleransları çok düşüktür.
+Mika kapasitör, RF devrelerinde kullanılır. Günümüzde çok kullanılmayan kapasitör çeşididir.
+Trimer kapasitör, kapasite değeri tornavida aracılığı ile değiştirilebilir tiptedir.En düşük 0.5 – 10 pf ve en yüksek 1-120 pf arasında değişir.
+Süper kapasitör, ultra kapasitör de deniliyor. 12 Kf (12.000 Farad) gibi çok yüksek kapasite değerlerine sahiptir.Depoladığı enerjinin yaklaşık 10 ile 100 katı kadarını depolar.
+4.3. Bread Board (Devre Tahtası)
+Proje yaparken en büyük yardımcılarınızdan birisi ana temeli oluşturan devre elemanı olan Bread Board’dır. Devre tahtası ile projelerimizi lehim yapmadan kolayca kurabiliriz. Genel olarak içerisinde birbirine bağlı hatları barındıran devre tahtası üzerine elektronik bileşenleri yerleştirerek projelerimizi çalışır hale getirebiliriz. Devre tahtası üzerinde birbirne bağlantılı paralel hatlar bulundurur.
+￼
+
+Kırmızı hatta +, mavi hatta ise toprak hattını bağlayıp daha sonra devrenizin diğer bölümlerinde bu hatlar üzerinden gerilimlere ulaşabilirsiniz. Orta bölümde bulunan 5’li delik gruplarının her biri kendi içerisinde bağlantılıdır. Yani kırmızı çizgi boyunca uzanan her bir delik kısadevre durumundadır. Dolayısıyla aynı sıradaki deliklere oturttuğunuz komponentler birbirine bağlanmış olur. Deliklerin her biri A,B,C,D,E,F harfleriyle belirtilmiştir. Ayrıca sol taraftaki numaralar da delik gruplarını ifade etmektedir.
+Breadboard’ın iç yapısına bakacak olursak bu şekilde görünecektir.
+
+4.4 5 Volt Adaptör<br />
+5 volt adaptörü breadboardumuza bağlamamız şarttır çünkü entegreler 5 volt güç ile çalışmaktadır. Eğer entegrelere daha fazla güç verirsek entegreler çalışma veya entegreleri yakma ihtimalimiz olabilir.
+￼
+4.5 4033 Entegre<br />
+4033 Entegresi 7 segment için gereklidir. Birinci pin yerinden clock girişi alır. Her aldığında tek tek sayar. 0’dan başlayarak 9’a kadar gidecektir.
+4033 Entegresinin içeriğinde D flip flop’u bulunur. Mantık şemasını alt tarafta bulabilirsiniz.
+4033 Pinlerindeki A,B,C,D,E,F çıkışlarını 7 Segment Displaydeki A,B,C,D,E,F girişlerine bağlamalıyız. Böylelikle her clock palsi geldiğinde tek tek gezecektir.
+16. Giriş pininde VCC. Sekizinci girişe GND’yi bağlıyoruz. Üçüncü girişe de VCC bağlıyoruz. İlk clock palsi verdiğimiz 4033 entegresinden 9’a kadar gideceği için bir sonraki clock palsinde fazlalık döndürecek. Bu fazlalık clock palsi yerine geçecek ve bunu da 5 pinli girişten 2. 4033 entegresinin birinci girişine bağlayarak 4033 entegrelerini devremize bağlamış oluyoruz.
+￼
+￼
+
+4.6 555 Timer Entegre<br />
+555 Entegresi bize clock palsleri verecektir. Birinci pinimiz GND bağlayacağız.Birinci giriş pinimizi GND’ye bağlayacağız. Sekizinci girişimiz VCC bağlayacağız. İkinci pin ile altıncı pinilerin birbirine bağlıyoruz. Sekizinci pinden bir kablo ile yedinci pine bağlıyoruz. Daha sonra yediden de altıncı pine direnç bağlıyoruz. Altıncı pine de kapasitör bağlıyoruz ve eksi tarafını GND’ye bağlıyoruz.Dörtüncü pine VCC bağlıyoruz daha sonra dörtden geleni sekizinci pine bağlıyoruz. Daha sonra tek tek kontrol ediyoruz herhangi bir yanlışlık olmaması için düzgün bağladığımızda üçüncü pinden clock palslerini alabiliriz. Öncelikle led ile kontrol etmekte fayda var.
+￼
+
+4.7 Seven Segment Display<br />
+Günlük hayatta birçok alanda karşımıza çıkan ve 7 Segment Display diye adlandırılan sayısal göstergeler oldukça yaygın şekilde kullanılan elektronik devre elemanlarıdır. 7 Segment Display’ler LED tabanlı göstergelerdir. İçerisinde bulunan 7 adet LED ile aydınlatılan 7 ayrı bölmeden oluşan bir sistem bütünüdür. 7 Segment Display’lerde LED’lerin kullanılmasının en önemli nedeni LED’lerin çok küçük hacimlerde olan türlerinin olmasıdır. Bu küçük LED’ler belirli bir kalıp içerisine yerleştirilerek 7 Segment Display’ler oluşturulmaktadır.
+￼
+
+Sayıların ve yazıların oluşması için A,B,C,D,E,F olarak adlandırılmıştır. Eğer A harfini basmak istiyorsak A,B,C,E,F,G pinlerine elektrik göndermemiz ile A harfi oluşacaktır. Ama bizim böyle tek tek yapmamıza gerek yoktur çünkü 4033 entegresi her clock palsinde bize tek tek 0,1,2 …. 9 kadar değerler verecektir.
+Seven segmentin 2 çeşidi bulunur. Birisi katot’dur diğeri anottur.Katot da COM pin yerine GND vererek seven segmentimize güç vermiş oluyoruz. Anotta ise COM pin yerine VCC vererek seven segmentimizi çalıştırmış oluyoruz.
+￼
+
+Projenin Youtube Videosu : https://www.youtube.com/watch?v=HzCiIdXODWI&ab_channel=ErayK%C4%B1sabacak <br />
+5.KAYNAKLAR<br />
+Prof. Dr. Fatih BAŞÇİFTÇİ, 2018,  Boolean Cebiri,
+http://www.fatihbasciftci.com/dersler/mantik_devreleri/bolum_4/index.php <br />
+Prof. Dr. Fatih BAŞÇİFTÇİ, 2018,  Lojik Kapılar ve Lojik Devreler,
+http://www.fatihbasciftci.com/dersler/mantik_devreleri/bolum_5/index.php <br />
+Prof. Dr. Fatih BAŞÇİFTÇİ, 2018,  Karnaugh Haritaları,
+http://www.fatihbasciftci.com/dersler/mantik_devreleri/bolum_6/index.php <br />
+Robot Sistem, 2018,  Direnç,
+http://www.robotiksistem.com/direnc_nedir_direnc_cesitleri.html <br />
+Robotistan, 2016,  Direnç,
+Direnç Nedir ? Direnç Çeşitleri
+Coşkun Taşdemir, 2012,  Breadboard,
+http://arduinoturkiye.com/devre-tahtasi-breadboard-kullanimi/ <br />
+Devre Okulu, 2018,  Karnaugh Haritaları,
+http://devreokulu.com/74HC08.html<br />
+Hızır İlyas Seçen, 2018,  Karnaugh Lojik Devreler,
+https://www.elektrikport.com/makale-detay/lojik-devreler-(kapilar)-elektrikport-akademi/11519 <br />
+Emir Buğra KÖKSALAN, 2017,  Karnaugh Haritaları,
+Karno (Karnaugh) Haritası Nedir?
+Muhammed Ahmet ALKAN, 2016,  7 Segment Display Nedir?,
+https://www.elektrikport.com/teknik-kutuphane/7-segment-display-nedir/18475 <br />
+Kerem İzgöl, 2017,  Kapasitör Nedir?,
