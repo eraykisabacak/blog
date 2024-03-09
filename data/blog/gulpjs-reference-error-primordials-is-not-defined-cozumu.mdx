@@ -1,0 +1,39 @@
+---
+title: 'GulpJS “ReferenceError: primordials is not defined” Çözümü'
+date: '2020-10-01'
+lastmod: '2020-10-01'
+tags: ['GulpJS “ReferenceError: primordials is not defined” Çözümü']
+draft: false
+summary: 'GulpJS “ReferenceError: primordials is not defined” Çözümü'
+images: ['/static/images/twitter-card.png']
+---
+### GulpJS bilgisayarım da çalıştırırken primordianls is not defined isimli bir hata ile karşılaştım ve çözümünü paylaşmak istedim.
+
+
+```javascript
+ReferenceError: primordials is not defined
+at fs.js:36:5
+at req_ (C:\Users\{user}\Desktop\fe\node_modules\natives\index.js:143:24)
+at Object.req [as require] (C:\Users{user}\Desktop\fe\node_modules\natives\index.js:55:10)
+at Object.<anonymous> (C:\Users{user}\Desktop\fe\node_modules\vinyl-fs\node_modules\graceful-fs\fs.js:1:37)
+at Module._compile (internal/modules/cjs/loader.js:1137:30)
+at Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+at Module.load (internal/modules/cjs/loader.js:985:32)
+at Function.Module._load (internal/modules/cjs/loader.js:878:14)
+at Module.require (internal/modules/cjs/loader.js:1025:19)
+at require (internal/modules/cjs/helpers.js:72:18)
+```
+
+Öncelikle package.json dosyası ile aynı klasördeyken npm-shrinkwrap.json isimli bir dosya oluşturalım ve dosya içerisine alttaki kodu ekleyelim.
+
+```javascript
+{
+    "dependencies": {
+        "graceful-fs": {
+        "version": "4.2.2"
+        }
+    }
+}
+```
+
+Daha sonra npm install diyerek npm-shrinkwrap.json dosyamızda bir güncelleme gelecektir ve gulp diyerek sorunumuz çözülmüş olacaktır.

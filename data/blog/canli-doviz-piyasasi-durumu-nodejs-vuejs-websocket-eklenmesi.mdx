@@ -1,0 +1,52 @@
+---
+title: 'Canlı Döviz Piyasası Durumu NodeJS, VueJS Websocket Eklenmesi'
+date: '2020-11-05'
+lastmod: '2020-11-05'
+tags: ['Canlı Döviz Piyasası Durumu NodeJS, VueJS Websocket Eklenmesi']
+draft: false
+summary: 'Canlı Döviz Piyasası Durumu NodeJS, VueJS Websocket Eklenmesi'
+images: ['/static/images/twitter-card.png']
+---
+### Geçen haftalar da paylaşmış olduğum projeye yeni bir ekleme yaparak Websocket projeme ekledim.
+
+### Peki neden bir Websocket ekledim ?
+
+Önce ki App baktığımız da dövizlerin yeni durumlarını almak için devamlı API istek atıyordum. Devamlı istek atmak yerine Web Socket kullanarak herhangi bir değişiklik olduğunda bana geri verecektir. Böylelikle en güncel piyasayı alabiliyoruz.
+
+##### Websocket kullanmak istemez isek yine aynı API mantığından /api/altin istek attığımızda veriler gelecektir.
+
+### Websocket Nedir ?
+Websocket basit anlatmak gerekirse bir isteği yapan kişi ile sunucu arasında bir bağlantı kuruluyor ve sunucuda herhangi bir değişiklik olduğunda bunu isteği yapan kişiye bildiriyor. Bunu chat uygulamaların da benim yaptığım gibi canlı döviz, forex gibi siteler de kullanılıyor. Web socket design pattern biliyorsanız bir observer pattern de diyebiliriz. Birisi size abone oluyor herhangi bir değişiklikte abone olanlara bildiriyorsunuz.
+
+Websocket ile HTTP/REST arasındaki farklı ise REST API da client sunucuya bir istek atar ve bir response sonuç döndürür ve işlem bitmiş olur. Aşağıdaki fotoğrafta da görebilirsiniz.
+
+![](/static/images/dovizapi/img.png)
+
+Websocket de ise TCP bağlantısı üzerinden çift taraflı bir iletişim vardır. 2011 yılında IETF tarafından RFC 6455 ile standart haline gelmiştir. Alt kısım da Websocket ile HTTP isteği arasındaki farkı görebilirsiniz.
+
+![](/static/images/dovizapi/img_1.png)
+
+| /api/      | GET | Bist100,Dolar,Euro,Altın,Petrol,Bono                                              |
+|------------|-----|-----------------------------------------------------------------------------------|
+| /api/altin | GET | Altın, Altın Ons, Bilezik, Cumhuriyet Altın, Tam Altın, Yarım Altın, Çeyrek Altın |
+| /api/gumus | GET | Gumus Gram, Gumus, Gumus Euro, Gumus Dolar, Gumus TRY                             |
+| /api/borsa | GET | Bist 100 Hisseler                                                                 |
+
+![](/static/images/dovizapi/img.png)
+![](/static/images/dovizapi/img_1.png)
+![](/static/images/dovizapi/img_2.png)
+
+### Websocket Kullanırken Yaşadığım Sıkıntılar
+
+Websocket ile bilgileri alırken birçok bilgi olduğundan (Altın,Borsa, Kripto vb.) ilk aklıma gelen bütün bunları bir array atarak gönderebilirim diye düşündüm fakat biraz araştırma yaparak bunun yerine dizinin ilk indisine bilginin hangisini gönderdiğimi yazdım diğer indisine ise objeyi verdim. Böylelikle büyük bir bilgi gitmektense tek tek bilgileri göndererek karmaşıklığı çözdüğümü düşünüyorum.
+
+Eğer dövizlerin Websocket kullanmak istiyorsanız: wss://dovizapi.herokuapp.com/ buraya bir Websocket bağlantısı açarak kullanabilirsiniz. Eğer projenizde kullanmak istiyorsanız projeyi indirip kendi sunucunuza kurmanız daha iyi olacaktır. Çünkü herokudaki ücretsiz kullanma hakkı bitmiş olursa yanıt alamayabilirsiniz.
+
+
+#### API Repo: https://github.com/eraykisabacak/Doviz-API
+
+#### API: https://dovizapi.herokuapp.com/api
+
+#### VueJS Front End Repo: https://github.com/eraykisabacak/Currency-and-Crypto
+
+#### VueJS Front End : https://currency-and-crypto.vercel.app/

@@ -1,0 +1,47 @@
+---
+title: 'Instagram Kullanıcısının Takip Ettiği Kişilerin Hepsi Nasıl Takip Edilir ? (Javascript)'
+date: '2021-08-14'
+lastmod: '2021-08-14'
+tags: ['Instagram Kullanıcısının Takip Ettiği Kişilerin Hepsi Nasıl Takip Edilir ? (Javascript)']
+draft: false
+summary: 'Instagram Kullanıcısının Takip Ettiği Kişilerin Hepsi Nasıl Takip Edilir ? (Javascript)'
+images: ['/static/images/twitter-card.png']
+---
+### Instagram’da çekiliş yapan birçok ünlü fenomen bulunmaktadır. Çekiliş şartlarından biriside takip ettiği bütün kişileri takip edilmesini şartı koşulmaktadır.
+
+Bütün kişileri takip etmek için tek uğraşmak yerine console ekranından birkaç satırlık kod yazarak bütün kişileri takip edebiliriz.
+
+Öncelikle çekilişi yapan kişinin profile sayfasına gidelim ve takip ettiği kişilerin listesinin olduğu pencereye geçelim.
+
+![](/static/images/instagram-takip/img.png)
+
+Daha sonra F12 tuşuna basarak tarayıcının geliştirici araçlarını açalım ve console sekmesine geçelim.
+
+![](/static/images/instagram-takip/img_1.png)
+
+Daha sonra ise bütün takip ettiklerini görebilmemiz için aşağıdaki kodu gelen sayı eşit olana kadar çalıştırıyoruz.
+
+```javascript
+document.getElementsByClassName(‘isgrP’)[0].scrollTop = document.getElementsByClassName(‘isgrP’)[0].scrollHeight
+```
+![](/static/images/instagram-takip/img_2.png)
+
+Elimizde artık bütün takip ettiği kullanıcılar bulunmaktadır. Şimdi bütün kullanıcıları takip etmemiz gerekiyor. Bunun içinde alttaki kodu çalıştırmalıyız.
+```javascript
+for (let i = 0; i < document.getElementsByClassName(‘sqdOP L3NKy y3zKF’).length; i++) {
+document.getElementsByClassName(‘sqdOP L3NKy y3zKF’)[i].click()
+}
+```
+![](/static/images/instagram-takip/img_3.png)
+
+Belirli bir zamanda belirli bir kullanıcı takip etme limiti olduğu için üst fotoğraftaki gibi bir hata verebilir. Ama birkaç dakika sonra tekrar denediğinizde kaldığı yerden tekrar devam edecektir.
+
+Daha sonra alttaki kodu çalıştırdığımızda sonuç 0 ise bütün kullanıcıları takip etmiş olacağız.
+```javascript
+document.getElementsByClassName(‘sqdOP L3NKy y3zKF’).length;
+```
+
+![](/static/images/instagram-takip/img_4.png)
+
+
+# Bu gönderi 14.08.2021 tarihinde oluşturulmuştur. Eğer ilerleyen zamanlarda yaptığım kodlar çalışmadı ise class isimleri değişmiş veya instagram tasarımı değişmiştir.

@@ -1,0 +1,23 @@
+---
+title: 'Node.js ile Discord COVID-19 Botu Geliştirme'
+date: '2020-09-20'
+lastmod: '2020-09-20'
+tags: ['Node.js ile Discord COVID-19 Botu Geliştirme', 'nodejs']
+draft: false
+summary: 'Node.js ile Discord COVID-19 Botu Geliştirme'
+images: ['/static/images/twitter-card.png']
+---
+### Node.js kullanarak bir discord botu geliştirmeye çalıştım.
+### Bilgileri sağlık bakanlığı API’den aldım. Bu bot !korona yazıldığında günlük raporu bize geri döndürmektedir.
+
+![](/static/images/nodejs-covid19/nodejs-covid19-1.jpg)
+
+Eğer detaylı olarak toplam vaka sayısı, toplam test sayısı gibi bilgilerin ve günlük tablonun gelmesi için !koronadetayli yazılarak bize detaylı olarak geri dönüş vermektedir.
+
+![](/static/images/nodejs-covid19/nodejs-covid19-1.jpg)
+
+Proje de request paketini kullanarak Sağlık Bakanlığına bir istek atılıyor ve gelen istek JSON data dönüştürüyor. Sonra en son gelen bilgiler ile bot cevap veriyor.
+Discord botu için discord tarafından oluşturulmuş bir paket discord.js paketini kullandım.
+Ve bir de Cron job kullanılmıştır. Cron API saniyelik olarak istek atmaktadır ve eski veri ile cron tarafından atılmış istekler karşılaştırılarak eğer birbirlerinden farklı veriler ise bot son dakika olarak mesaj atmakta ve yeni veriler detaylı bir şekilde gösterilmedir. ( TEST EDİLMEMİŞTİR )
+Eğer sizde bu botu kullanmak isterseniz yapacağınız tek şey en altta bulunan token yerine sunucu tokeninizi girmeniz yeterlidir. Botun devamlı açık kalması içinde Heroku kullandım.
+#### Github Repo : https://github.com/eraykisabacak/TRKoronaDiscord
