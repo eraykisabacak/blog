@@ -1,0 +1,22 @@
+---
+title: 'Metamask Bağlı Olunan Sitelerden Nasıl Çıkış Yapılır?'
+date: '2022-02-20'
+lastmod: '2022-02-20'
+tags: ['Metamask Bağlı Olunan Sitelerden Nasıl Çıkış Yapılır?','metamask']
+draft: false
+summary: 'Metamask Bağlı Olunan Sitelerden Nasıl Çıkış Yapılır?'
+images: ['/static/images/twitter-card.png']
+---
+### Metamask kullanırken birçok siteye cüzdanımızı bağlıyoruz ama bazı siteler ilerleyen zamanlar açık olması durumunda hacklenebiliyor ve böylelikle sizde cüzdanınız bağlı olduğu için sizinde cüzdanlarınızdan etkilenebiliyor.(Kesin etkilenir mi bilmiyorum) Böylece cüzdanınızdaki coin veya NFT’ler başkalarının eline geçmiş olabilir. Birçok sosyal medyada da cüzdan hacklerini duymuşsunuzdur.
+
+
+Metamask cüzdanınıza giriş yaptığımızda sağdaki 3 noktaya basıp connect edilmiş siteleri görebilirsiniz. Kullanmadığınız veya riskli olabilecek sitelerden bu sekmeden silebilirsiniz. Bende burada çok fazla site olabileceğini düşünerek (Bende çok fazla bağlı site vardı) burada incele diyerek bir chrome dev tools açtım ve alttaki kodu kullanarak tek tek bu kodu çalıştırarak siteleri silmiş oldum. Bir for döngüsü ile de yapmayı denedim fakat tam bir sonuç elde edemedim o yüzden her site için tek tek kodu çalıştırdım.
+
+
+![](/static/images/metamask/img.png)
+
+```javascript
+document.getElementsByClassName(‘connected-sites-list__content-row’)[0].getElementsByClassName(‘fas fa-trash-alt connected-sites-list__trash’)[0].click()
+;document.getElementsByClassName(‘button btn–rounded btn-primary’)[0].click();
+}
+```
